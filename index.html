@@ -1,21 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
     <title>ALM-埃罗芒老兄</title>
     <meta name="keywords" content="埃罗芒老兄,ALM,埃罗芒">
     <meta name="description" content="埃罗芒老兄 个人网站 '沉睡的传说，动摇的事实。真实下的黑暗，废墟上的噩梦。大海的香气，迟来的后悔。'">
 </head>
 <body>
 
-<div>asdf</div>
-<!--<div>bbbb</div>-->
+<div id="app">
+    {{msg}}
+    <div id="test">
+        {{test}}
+        <div>
+            <span v-bind:title="msg">鼠标悬停几秒钟查看此处动态绑定的提示信息！</span>
+        </div>
+    </div>
+</div>
 
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
-    console.log('test')
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                msg: 'hello world',
+                test: 'test'
+            }
+        }
+    });
+
 </script>
 </html>
         
