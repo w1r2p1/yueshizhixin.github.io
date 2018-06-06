@@ -1,13 +1,16 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <title>ALM-埃罗芒老兄</title>
+    <meta name="keywords" content="埃罗芒老兄,ALM,埃罗芒">
+    <meta name="description" content="埃罗芒老兄 个人网站 '沉睡的传说，动摇的事实。真实下的黑暗，废墟上的噩梦。大海的香气，迟来的后悔。'">
 </head>
 <body>
+<a href="../index.html">索引</a><br>
 <div id="app" v-if="seen">
     <div>
         <strong>1.指令</strong> <br>
@@ -19,7 +22,18 @@
         <strong>2.js原生语句</strong> <br>
         - {{num+1}} <br>
         - {{num==5?true:false}} <br>
-        <button @click="num++;console.log('2')" value="">自增</button>
+        <button @click="num++">@click="num++"</button>
+        <br>
+        <a :href="testUrl">:href</a>
+    </div>
+    <div>
+        <strong>3.计算属性 (依赖值未变不会重新计算)</strong> <br>
+        - {{reveMsg}} <br>
+        - 计算属性的setter
+    </div>
+    <div>
+        <strong>4.侦听器(异步或开销较大)</strong> <br>
+        - axios与lodash看看
     </div>
 
 </div>
@@ -33,13 +47,17 @@
             return {
                 seen: true,
                 msg: '<span style="color: red;">这是v-html标签</span>',
-                num:1,
-                flag:true,
+                num: 1,
+                flag: true,
+                testUrl: 'http://www.baidu.com'
             }
         },
-        methods: {
-
-        }
+        computed: {
+            reveMsg() {
+                return this.msg.split('').reverse().join('')
+            }
+        },
+        methods: {}
     })
 
 </script>

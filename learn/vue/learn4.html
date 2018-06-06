@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <title>ALM-埃罗芒老兄</title>
+    <meta name="keywords" content="埃罗芒老兄,ALM,埃罗芒">
+    <meta name="description" content="埃罗芒老兄 个人网站 '沉睡的传说，动摇的事实。真实下的黑暗，废墟上的噩梦。大海的香气，迟来的后悔。'">
+    <style>
+        .act{
+            color: red;
+        }
+        .big{
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+<a href="../index.html">索引</a><br>
+<div id="app">
+    <strong>1.class</strong> <br>
+    - <span class="big" @click="actF=!actF" :class="{act:actF}">:class="{act:actF}" 点我</span> <br>
+    - <span @click="bigF=!bigF" :class="actO">classObject </span> <br>
+    - <span>class数组</span> <br>
+
+    <strong>2.style</strong> <br>
+    - 用法同class <br>
+    <br>
+    <strong>3.key 复用元素</strong> <br>
+    <template v-if="actF">
+        <p>userName</p>
+            <input placeholder="222">
+    </template>
+    <template v-else>
+        <p>Email</p>
+            <input placeholder="333">
+    </template>
+    <template v-if="actF">
+        <p>userName</p>
+        <input placeholder="222" key="acc1">
+    </template>
+    <template v-else>
+        <p>Email</p>
+        <input placeholder="333" key="acc0">
+    </template>
+    <strong>v-if and v-show</strong> <br>
+    - v-if真正渲染
+    - v-show display:none
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+
+    let vm = new Vue({
+        el: '#app',
+        data() {
+            return {
+                actF:true,
+                bigF:false,
+            }
+        },
+        computed: {
+            actO() {
+                return{
+                    act:this.actF&&this.bigF,
+                }
+            }
+        },
+        methods: {}
+    })
+
+</script>
+</html>
