@@ -13,18 +13,56 @@
 <a href="../index.html">索引</a><br>
 <div id="app">
     <strong>1.click</strong> <br>
-    <button @click="count++">点击了{{count}}次</button>
+    <button @click.once="count++">点击了{{count}}次</button>
     <button @click="cl">走方法 @click="cl" eve.target.tagName</button>
     <button @click="xz('asdf')">走方法 @click="xz('asdf')" </button>
     <button @click="xzcl('666',$event)">走方法 @click="xzcl('666',$event)" </button>
-    <br><br>
+    <br>
+    <hr>
     <strong>2.事件修饰符</strong>
+    .stop 阻止事件进一步传播<br>
+    .prevent 不执行默认方法 <br>
+    .capture 添加事件监听器时使用事件捕获模式 即元素自身触发的事件先在此处处理，然后才交由内部元素进行处理 <br>
+    .self 只当在 event.target 是当前元素自身时触发处理函数
+         即事件不是从内部元素触发的 <br>
+    .once 只触发一次<br>
+    .passive <br>
+    <hr>
+    <strong>3.按键修饰符</strong> <br>
+    <input type="text" @keyup.enter="con('按了回车键了')" placeholder="@keyup.enter=xxx"> <br>
+    <input type="text" @keyup.13="con('按了回车键了')" placeholder="@keyup.13=xxx"> <br>
+    .enter<br>
+    .tab<br>
+    .delete (捕获“删除”和“退格”键)<br>
+    .esc<br>
+    .space<br>
+    .up<br>
+    .down<br>
+    .left<br>
+    .right <br>
+    全局定义 <br>
+    Vue.config.keyCodes.f2=113 <br>
+    <input type="text" @keyup.f2="con('按了f2了')" placeholder="@keyup.f2=xxx"> <br>
+    <hr>
+    <strong>4.系统修饰符</strong><br>
+
+    .ctrl<br>
+    .alt<br>
+    .shift<br>
+    .meta<br>
+    .exact :keyup.ctrl.exact只按ctrl处罚 :keyup.ctrl ctrl[alt|shift]都会处罚 <br>
+    <hr>
+    <strong>5.鼠标修饰符</strong><br>
+    .left <br>
+    .right <br>
+    .middle <br>
+
 
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script>
-
+    Vue.config.keyCodes.f2=113
     let vm = new Vue({
         el: '#app',
         data() {
@@ -35,6 +73,9 @@
         },
         computed: {},
         methods: {
+            con(v){
+                console.log(v)
+            },
             cl(eve) {
                 console.log(eve.target.tagName)
             },
