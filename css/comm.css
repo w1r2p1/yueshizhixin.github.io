@@ -1,0 +1,70 @@
+/*div背景颜色级别*/
+.divbg1 {
+  background-color: #f6f6f6;
+}
+
+.divbg2 {
+  background-color: #EBEEF5;
+}
+
+.divbg3 {
+  background-color: #E4E7ED;
+}
+
+.divbg4 {
+  background-color: #DCDFE6;
+}
+
+/*
+  最大尺寸
+ */
+.divMain {
+  max-width: 1199px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+  图片
+ */
+
+/*圆角*/
+.img-circle {
+  border-radius: 50%;
+}
+
+/*顶部头像*/
+.img-headHeader {
+  width: 54px;
+  height: 54px;
+  padding: 2px 2px;
+}
+
+/*正文头像*/
+.img-headNote {
+  width: 62px;
+  height: 62px;
+}
+.img-headNote img {
+  margin-top: 2px;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .1);
+}
+
+/*el-card*/
+/*移动上显示的浮动头像*/
+.img-headCard {
+  left: 15%;
+  top: 0;
+  z-index: 20;
+  position: absolute;
+  min-width: 230px;
+  max-width: 230px;
+  /*max-height: 200px;*/
+  /*min-height: 200px;*/
+}
+
+/**
+
+ */
